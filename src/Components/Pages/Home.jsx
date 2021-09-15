@@ -1,5 +1,5 @@
 import "../Font";
-import { Grid, Paper } from "@material-ui/core";
+import { Grid } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
 import * as yup from "yup";
