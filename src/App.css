@@ -1,3 +1,17 @@
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  box-sizing: border-box;
+  padding: 0%;
+  margin: 0;
+}
+p {
+  font-size: 12px;
+}
 .App {
   width: 99vw;
   height: 100vh;
@@ -7,4 +21,11 @@
   align-items: center;
   text-align: center;
   background-color: #141414;
+}
+.alert {
+  font-size: 12px;
+  background-color: rgba(255, 0, 0, 0.7);
+  color: #fff;
+  padding: 10px;
+  font-weight: bold;
 }

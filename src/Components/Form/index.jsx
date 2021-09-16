@@ -25,13 +25,16 @@ const useStyles = makeStyles((theme) => ({
     color: "red",
     marginTop: "10px",
   },
+  title: {
+    marginBottom: "10px",
+  },
 }));
 function Form({ handleSubmit, register, errors, onSubmitFunction }) {
   const classe = useStyles();
   return (
     <Paper className={classe.container}>
       <form onSubmit={handleSubmit(onSubmitFunction)} autoComplete="off">
-        <h3>API Git Hub</h3>
+        <h3 className={classe.title}>API Git Hub</h3>
         <Grid className={classe.forRow} item xs={12}>
           <TextField
             className={classe.input}

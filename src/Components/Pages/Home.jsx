@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 function Home() {
   const formShema = yup.object().shape({
-    information: yup.string().required("User Obrigatório"),
+    information: yup.string().required("Campo Obrigatório"),
   });
   const {
     register,
@@ -28,22 +28,36 @@ function Home() {
     resolver: yupResolver(formShema),
   });
   const [isList, setIsList] = useState(false);
+  const [arrRepo, setArrRepo] = useState([]);
+  const [error, SetError] = useState();
   const onSubmitFunction = (data) => {
+    fetch(`https://api.github.com/repos/${data.information}`)
+      .then((response) => response.json())
+      .then((response) => {
+        if (response.message === "Not Found") {
+          SetError(true);
+          return response.message;
+        }
+        SetError(false);
+        return setArrRepo([...arrRepo, response]);
+      })
+      .catch((err) => console.log(err));
+
     setIsList(true);
-    console.log(data);
   };
   const classe = useStyles();
 
   return (
     <Grid className={classe.root} container spacing={1}>
       <Grid item xs={12} className={classe.rootContainer}>
+        {error && <p className="alert">Repository not found or private!</p>}
         <Form
           handleSubmit={handleSubmit}
           register={register}
           errors={errors}
           onSubmitFunction={onSubmitFunction}
         />
-        {isList && <List />}
+        {isList && <List arrRepo={arrRepo} />}
       </Grid>
     </Grid>
   );
