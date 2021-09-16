@@ -8,6 +8,7 @@ const useStyle = makeStyles((theme) => ({
     boxSizing: "border-box",
     margin: "0 auto",
     marginBottom: "5px",
+    animation: "FadeIn 1s linear",
   },
   container__row: {
     width: "100%",
@@ -36,7 +37,7 @@ function Card({ element }) {
   const classe = useStyle();
 
   return (
-    <Paper className={classe.container}>
+    <Paper className={`${classe.container}`}>
       <Grid className={classe.container__row} item xs={12}>
         <Grid className={classe.col__img} item xs={3}>
           <img

@@ -29,3 +29,14 @@ p {
   padding: 10px;
   font-weight: bold;
 }
+.FadeIn {
+  animation: FadeIn 1s linear;
+}
+@keyframes FadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

@@ -10,10 +10,9 @@ import List from "../List";
 import { useState } from "react";
 
 const useStyles = makeStyles((theme) => ({
-  rootContainer: {
-    display: "flex",
-    flexDirection: "column",
-    gap: "10px",
+  container__alert: {
+    width: "100%",
+    height: "30px",
   },
 }));
 function Home() {
@@ -50,7 +49,12 @@ function Home() {
   return (
     <Grid className={classe.root} container spacing={1}>
       <Grid item xs={12} className={classe.rootContainer}>
-        {error && <p className="alert">Repository not found or private!</p>}
+        <Grid item xs={12} className={classe.container__alert}>
+          {error && (
+            <p className="alert FadeIn">Repository not found or private!</p>
+          )}
+        </Grid>
+
         <Form
           handleSubmit={handleSubmit}
           register={register}
